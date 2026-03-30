@@ -2,9 +2,19 @@
 import React from "react";
 
 export function Navbar() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <nav id="navbar">
-      <div className="logo">&lt;jalil <span>/ &gt;</span></div>
+      <div 
+        className="logo" 
+        onClick={scrollToTop} 
+        style={{ cursor: 'pointer' }}
+      >
+        &lt;jalil <span>/ &gt;</span>
+      </div>
       <ul className="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>

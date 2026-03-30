@@ -1,30 +1,24 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import gsap from "gsap";
 
 export function Contact() {
-  const handleForm = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleForm = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     const form = e.target as HTMLFormElement;
     const btn = document.getElementById("sbtn") as HTMLButtonElement | null;
     if (!btn) return;
+    
+    setIsSubmitting(true);
+    const originalText = btn.textContent;
+    btn.textContent = "Sending...";
+
     const r = btn.getBoundingClientRect();
     const evt = e.nativeEvent as MouseEvent;
-
-    // Get form values
-    const nameInput = form.querySelector('input[type="text"]') as HTMLInputElement;
-    const emailInput = form.querySelector('input[type="email"]') as HTMLInputElement;
-    const subjectInput = form.querySelectorAll('input[type="text"]')[1] as HTMLInputElement | undefined;
-    const messageInput = form.querySelector('textarea') as HTMLTextAreaElement;
-
-    const senderName = nameInput?.value || '';
-    const senderEmail = emailInput?.value || '';
-    const subject = subjectInput?.value || 'Portfolio Contact';
-    const message = messageInput?.value || '';
-
-    const body = `Name: ${senderName}\nEmail: ${senderEmail}\n\n${message}`;
-    const mailtoLink = `mailto:jalilriaz990@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoLink, '_blank');
 
     // Ripple effect
     const rip = document.createElement("span");
@@ -34,23 +28,49 @@ export function Contact() {
     btn.appendChild(rip);
     setTimeout(() => rip.remove(), 600);
 
-    gsap.to(btn, {
-      scale: 0.96,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      onComplete: () => {
-        const originalText = btn.textContent;
-        btn.textContent = "✓ Sent!";
-        gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.4, ease: "back.out(2)" });
-        btn.style.boxShadow = "0 0 30px rgba(0,255,224,.3)";
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.boxShadow = "";
-          form.reset();
-        }, 3000);
-      },
-    });
+    try {
+      // Gather form data and structure it for FormSubmit
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Send via FormSubmit AJAX API
+      const response = await fetch("https://formsubmit.co/ajax/jalilriaz990@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) throw new Error("Failed to send");
+
+      // Success Animation
+      gsap.to(btn, {
+        scale: 0.96,
+        duration: 0.1,
+        yoyo: true,
+        repeat: 1,
+        onComplete: () => {
+          btn.textContent = "✓ Sent!";
+          gsap.fromTo(btn, { scale: 0.95 }, { scale: 1, duration: 0.4, ease: "back.out(2)" });
+          btn.style.boxShadow = "0 0 30px rgba(0,255,224,.3)";
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.boxShadow = "";
+            form.reset();
+            setIsSubmitting(false);
+          }, 3000);
+        },
+      });
+    } catch (error) {
+      console.error(error);
+      btn.textContent = "❌ Error";
+      setTimeout(() => {
+        btn.textContent = originalText;
+        setIsSubmitting(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -67,13 +87,19 @@ export function Contact() {
           </div>
         </div>
         <form className="cform" id="cform" onSubmit={handleForm}>
+          {/* Honeypot for spam protection */}
+          <input type="text" name="_honey" style={{ display: "none" }} />
+          <input type="hidden" name="_template" value="box" />
+          
           <div className="frow">
-            <div className="fg"><label>Name</label><input type="text" placeholder="Your name" required /></div>
-            <div className="fg"><label>Email</label><input type="email" placeholder="you@email.com" required /></div>
+            <div className="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" required disabled={isSubmitting} /></div>
+            <div className="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required disabled={isSubmitting} /></div>
           </div>
-          <div className="fg"><label>Subject</label><input type="text" placeholder="What's up?" /></div>
-          <div className="fg"><label>Message</label><textarea rows={5} placeholder="Tell me about your project..."></textarea></div>
-          <button type="submit" className="sbtn" id="sbtn">Send Message ↗</button>
+          <div className="fg"><label>Subject</label><input type="text" name="_subject" placeholder="What's up?" disabled={isSubmitting} /></div>
+          <div className="fg"><label>Message</label><textarea name="message" rows={5} placeholder="Tell me about your project..." required disabled={isSubmitting}></textarea></div>
+          <button type="submit" className="sbtn" id="sbtn" disabled={isSubmitting}>
+            Send Message ↗
+          </button>
         </form>
       </div>
     </section>
