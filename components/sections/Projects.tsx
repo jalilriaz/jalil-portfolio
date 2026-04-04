@@ -27,26 +27,26 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
   return (
     <div className={`pcard ${project.isBig ? 'big' : ''}`}>
       <div className="pthumb relative overflow-hidden group">
-        {project.images && project.images.length > 0 ? (
-          project.images.map((img, i) => (
-            <Image
-              key={img}
-              src={img}
-              alt={`${project.title} screenshot ${i + 1}`}
-              fill
-              className={`object-cover transition-opacity duration-1000 absolute inset-0 group-hover:scale-105 ${
-                i === currentImg ? "opacity-100 z-10" : "opacity-0 z-0"
-              }`}
-            />
-          ))
-        ) : (
-          <div className="ptbg g1 absolute inset-0"></div>
+        <div className={`ptbg ${project.badge === 'Platform' ? 'g2' : project.badge === 'Corporate' ? 'g3' : project.badge === 'Multilingual' ? 'g4' : 'g1'} absolute inset-0`}></div>
+        {project.images && project.images.length > 0 && (
+          <div className="absolute inset-4 sm:inset-5 rounded-xl overflow-hidden border border-white/10 shadow-2xl z-10 transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(0,255,224,0.15)]">
+            {project.images.map((img, i) => (
+              <Image
+                key={img}
+                src={img}
+                alt={`${project.title} screenshot ${i + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={`object-cover object-top transition-opacity duration-1000 ${
+                  i === currentImg ? "opacity-100" : "opacity-0"
+                }`}
+                priority={project.isBig && i === 0}
+              />
+            ))}
+          </div>
         )}
         <div className="absolute inset-0 bg-black/10 z-20 pointer-events-none"></div>
         <span className={`pbadge ${project.badgeColor} z-30`}>{project.badge}</span>
-        <div className="pacts z-30">
-          <a href={project.link || "#"} target={project.link?.startsWith("http") ? "_blank" : "_self"} rel="noopener noreferrer" className="pabtn">↗</a>
-        </div>
       </div>
       <div className="pbody">
         <div className="pname">{project.title}</div>
@@ -67,7 +67,7 @@ export function Projects() {
       title: "Elite Dental Centre Management",
       desc: "Comprehensive dental clinic management platform with responsive, mobile-first design. Integrated Google Calendar API for real-time appointment booking and built dynamic admin dashboards for revenue tracking.",
       stack: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "Google Calendar"],
-      images: ["/projects/elite-dental-1.png", "/projects/elite-dental-2.png"],
+      images: ["/elite dental.png"],
       badge: "Featured",
       badgeColor: "bg-neon",
       isBig: true,
@@ -76,7 +76,7 @@ export function Projects() {
       title: "Digital Product Platform (DPP)",
       desc: "Designed and developed the frontend architecture for a platform managing digital products with component-based structure that improved maintainability and reduced load times.",
       stack: ["React.js", "TypeScript", "REST APIs"],
-      images: ["/projects/dpp-manager-1.png", "/projects/dpp-manager-2.png", "/projects/dpp-manager-3.png"],
+      images: ["/dpp.png"],
       badge: "Platform",
       badgeColor: "bp-neon",
     },
@@ -84,15 +84,15 @@ export function Projects() {
       title: "Software Dev Agency Website",
       desc: "High-quality, responsive corporate website to showcase software services and client portfolios with cross-browser compatibility and optimized UI/UX.",
       stack: ["React.js", "JavaScript", "Tailwind CSS"],
-      images: ["/projects/dd-brothers-1.png", "/projects/dd-brothers-2.png"],
+      images: ["/dd-brothers.png"],
       badge: "Corporate",
       badgeColor: "bg-neon",
     },
     {
-      title: "Najadwil — Digital Ticketing",
+      title: "Najadwil - Digital Ticketing",
       desc: "Multilingual ticketing application with RTL (Right-to-Left) layout support, i18n internationalization, and calendar-based booking features for seamless user experience.",
       stack: ["React.js", "i18next", "CSS3"],
-      images: ["/projects/najadwil-1.png", "/projects/najadwil-2.png"],
+      images: ["/njadwil.png"],
       badge: "Multilingual",
       badgeColor: "br-neon",
       isBig: true,

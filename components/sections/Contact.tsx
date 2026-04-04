@@ -83,6 +83,7 @@ export function Contact() {
           <div className="socials" style={{ marginTop: "2rem" }}>
             <a href="mailto:jalilriaz990@gmail.com" className="srow2"><div className="sicon">✉</div><div className="sinfo"><div className="sname">Email</div><div className="shandle">jalilriaz990@gmail.com</div></div><span className="sarr">→</span></a>
             <a href="https://www.linkedin.com/in/jalil-riaz-5b29a4237" target="_blank" rel="noopener noreferrer" className="srow2"><div className="sicon" style={{ fontSize: ".72rem", fontWeight: 700 }}>in</div><div className="sinfo"><div className="sname">LinkedIn</div><div className="shandle">/in/jalil-riaz-5b29a4237</div></div><span className="sarr">→</span></a>
+            <a href="https://github.com/jalilriaz" target="_blank" rel="noopener noreferrer" className="srow2"><div className="sicon" style={{ fontSize: ".72rem", fontWeight: 700 }}>gh</div><div className="sinfo"><div className="sname">GitHub</div><div className="shandle">github.com/jalilriaz</div></div><span className="sarr">→</span></a>
             <a href="tel:+923145475528" className="srow2"><div className="sicon">📞</div><div className="sinfo"><div className="sname">Phone</div><div className="shandle">+92 314 5475528</div></div><span className="sarr">→</span></a>
           </div>
         </div>
