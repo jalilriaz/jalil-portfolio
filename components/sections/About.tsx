@@ -8,11 +8,11 @@ export function About() {
           <div className="shimmer"></div>
           <div className="av">JR</div>
           <div className="aname">Jalil Riaz</div>
-          <div className="atitle">// Frontend Developer | React &amp; TypeScript Specialist</div>
-          <p className="abio">Frontend developer from <strong>Pakistan</strong>, passionate about building <strong>scalable, high-performance</strong> web applications. I write <strong>clean, typed code</strong> and deliver responsive, mobile-first interfaces that delight users.</p>
+          <div className="atitle">// MERN Stack Developer | Full-Stack Web Developer</div>
+          <p className="abio">MERN Stack Developer from <strong>Pakistan</strong>, passionate about building <strong>full-stack, production-ready</strong> web applications. I design <strong>REST APIs</strong>, model <strong>MongoDB</strong> schemas, and deliver responsive, mobile-first frontends using React.js — writing <strong>clean, typed code</strong> across the entire stack.</p>
           <div className="atags">
-            <span className="atag">React.js</span><span className="atag">Next.js</span><span className="atag">TypeScript</span>
-            <span className="atag">Tailwind CSS</span><span className="atag">Material UI</span><span className="atag">REST APIs</span>
+            <span className="atag">MongoDB</span><span className="atag">Express.js</span><span className="atag">React.js</span>
+            <span className="atag">Node.js</span><span className="atag">TypeScript</span><span className="atag">REST APIs</span>
           </div>
         </div>
         <div className="about-right">
@@ -21,13 +21,13 @@ export function About() {
             <span className="word"><span>Crafting pixels</span></span><br />
             <span className="word"><span>with purpose</span></span>
           </h2>
-          <p className="ssub" style={{ marginBottom: "1.1rem" }}>I&apos;m a <strong style={{ color: "var(--text)" }}>frontend developer</strong> at <strong style={{ color: "var(--text)" }}>Zaytrics, Islamabad</strong>, building reusable, scalable components using React.js and TypeScript for a large-scale digital product platform.</p>
-          <p className="ssub">I specialize in the <strong style={{ color: "var(--text)" }}>React ecosystem</strong> -  from component-based architecture to SSR with Next.js, complex state management, REST API integrations, and responsive, mobile-first UIs. Currently pursuing my <strong style={{ color: "var(--text)" }}>BS in Computer Science</strong> from Virtual University of Pakistan.</p>
+          <p className="ssub" style={{ marginBottom: "1.1rem" }}>I&apos;m a <strong style={{ color: "var(--text)" }}>MERN Stack Developer</strong> at <strong style={{ color: "var(--text)" }}>Zaytrics, Islamabad</strong>, building full-stack features for a large-scale digital product platform — REST APIs with Express &amp; Node, MongoDB data modeling, and React.js frontends with TypeScript.</p>
+          <p className="ssub">I specialize in the full <strong style={{ color: "var(--text)" }}>MERN ecosystem</strong> — from MongoDB schema design and JWT authentication to React component architecture, Redux state management, and Next.js SSR. Currently pursuing my <strong style={{ color: "var(--text)" }}>BS in Computer Science</strong> from Virtual University of Pakistan.</p>
           <div className="xcards">
-            <div className="xcard"><div className="xi">⚡</div><div className="xl">Performance</div><div className="xs">Optimized, high-speed web apps</div></div>
-            <div className="xcard"><div className="xi">🎨</div><div className="xl">Responsive Design</div><div className="xs">Mobile-first, cross-browser</div></div>
-            <div className="xcard"><div className="xi">🔒</div><div className="xl">Type Safety</div><div className="xs">TypeScript everywhere</div></div>
-            <div className="xcard"><div className="xi">🚀</div><div className="xl">API Integration</div><div className="xs">REST APIs, JSON, Google Calendar</div></div>
+            <div className="xcard"><div className="xi">⚡</div><div className="xl">Performance</div><div className="xs">Optimized full-stack apps</div></div>
+            <div className="xcard"><div className="xi">🔗</div><div className="xl">REST API Design</div><div className="xs">Express.js + Node.js backends</div></div>
+            <div className="xcard"><div className="xi">🗄️</div><div className="xl">Database</div><div className="xs">MongoDB &amp; Mongoose schemas</div></div>
+            <div className="xcard"><div className="xi">🔒</div><div className="xl">Auth &amp; Security</div><div className="xs">JWT, protected routes</div></div>
           </div>
         </div>
       </div>

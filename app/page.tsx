@@ -8,6 +8,7 @@ import { CustomCursor } from "@/components/CustomCursor";
 import { Navbar } from "@/components/layout/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
+import { Experience } from "@/components/sections/Experience";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
@@ -108,6 +109,17 @@ export default function Home() {
         },
       });
 
+      /* ── EXPERIENCE ── */
+      ScrollTrigger.create({
+        trigger: "#experience",
+        start: "top 75%",
+        onEnter: () => {
+          gsap.to(".exp-line", { scaleY: 1, duration: 0.8, ease: "power3.out" });
+          gsap.to(".exp-card", { opacity: 1, x: 0, stagger: 0.15, duration: 0.7, delay: 0.2, ease: "power3.out" });
+          gsap.to(".exp-orb", { opacity: 1, scale: 1, stagger: 0.15, duration: 0.5, delay: 0.35, ease: "back.out(2)" });
+        },
+      });
+
       /* ── CONTACT ── */
       ScrollTrigger.create({
         trigger: "#contact",
@@ -161,7 +173,7 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
 
     /* ── TYPING EFFECT ── */
-    const phrases = ["Building scalable web apps", "Turning designs into reality", "Obsessed with clean code", "Crafting seamless interfaces"];
+    const phrases = ["Building full-stack MERN apps", "REST APIs with Node & Express", "MongoDB database architecture", "React frontends, Node backends"];
     let pi = 0, ci = 0, del = false;
     const typed = document.getElementById("typed-role");
     let typeTimeout: NodeJS.Timeout;
@@ -186,7 +198,7 @@ export default function Home() {
     typeLoop();
 
     /* ── CHIP TEXT ── */
-    const chipPhrases = ["Available for new projects", "Open to collaborate", "React & TypeScript specialist"];
+    const chipPhrases = ["Available for new projects", "Full-Stack MERN Developer", "MongoDB · Express · React · Node"];
     let chipI = 0;
     const chipEl = document.getElementById("chip-text");
     let chipTimeout: NodeJS.Timeout;
@@ -223,6 +235,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />

@@ -20,7 +20,7 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
     if (!project.images || project.images.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentImg((prev) => (prev + 1) % project.images.length);
-    }, 3500); // Cross-fade every 3.5 seconds
+    }, 3500);
     return () => clearInterval(interval);
   }, [project.images]);
 
@@ -65,8 +65,8 @@ export function Projects() {
   const projectsData: ProjectData[] = [
     {
       title: "Elite Dental Centre Management",
-      desc: "Comprehensive dental clinic management platform with responsive, mobile-first design. Integrated Google Calendar API for real-time appointment booking and built dynamic admin dashboards for revenue tracking.",
-      stack: ["React.js", "Next.js", "Tailwind CSS", "REST APIs", "Google Calendar"],
+      desc: "Full-stack dental clinic management platform with real-time appointment booking via Google Calendar API. Built a Node.js/Express.js REST API backend connected to MongoDB, and a responsive React.js admin dashboard for revenue and patient tracking.",
+      stack: ["React.js", "Node.js", "Express.js", "MongoDB", "Google Calendar API"],
       images: ["/elite dental.png"],
       badge: "Featured",
       badgeColor: "bg-neon",
@@ -74,8 +74,8 @@ export function Projects() {
     },
     {
       title: "Digital Product Platform (DPP)",
-      desc: "Designed and developed the frontend architecture for a platform managing digital products with component-based structure that improved maintainability and reduced load times.",
-      stack: ["React.js", "TypeScript", "REST APIs"],
+      desc: "Designed and developed the full-stack architecture for a large-scale digital product platform — REST APIs with Express.js and MongoDB on the backend, and a component-based React.js + TypeScript frontend.",
+      stack: ["React.js", "Node.js", "Express.js", "MongoDB", "TypeScript"],
       images: ["/dpp.png"],
       badge: "Platform",
       badgeColor: "bp-neon",
@@ -99,9 +99,9 @@ export function Projects() {
     },
     {
       title: "Personal Developer Portfolio",
-      desc: "High-performance personal portfolio with modern UI/UX principles, smooth animations, and fully responsive, mobile-first layouts to showcase frontend projects.",
-      stack: ["React.js", "Next.js", "Tailwind CSS"],
-      images: [], // Fallback to gradient
+      desc: "High-performance personal portfolio with modern UI/UX principles, smooth GSAP animations, and fully responsive, mobile-first layouts to showcase full-stack MERN projects.",
+      stack: ["React.js", "Next.js", "GSAP", "Tailwind CSS"],
+      images: [],
       badge: "Portfolio",
       badgeColor: "bg-neon",
       link: "https://jalil-riaz-portfolio.vercel.app/",

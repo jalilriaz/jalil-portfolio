@@ -1,68 +1,75 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
-const experiences = [
+interface ExperienceData {
+  role: string;
+  company: string;
+  period: string;
+  bullets: string[];
+  stack: string[];
+}
+
+const experiences: ExperienceData[] = [
   {
-    role: "Frontend Developer",
-    company: "Zaytrics",
-    period: "March 2024 - Present",
-    description: "Led frontend development, implemented complex state management, integrated REST APIs, and mentored junior developers.",
+    role: "MERN Stack Developer",
+    company: "Zaytrics — Islamabad",
+    period: "Sep 2024 – Present",
+    bullets: [
+      "Architected and maintained REST APIs using Node.js and Express.js, powering the DPP platform's core features.",
+      "Designed MongoDB schemas with Mongoose for scalable data modeling and optimized query performance.",
+      "Built reusable, component-based React.js frontends integrated with backend APIs via Axios and Redux.",
+      "Implemented JWT authentication flows for secure user login and protected route access.",
+      "Mentored junior developers, conducted code reviews, and enforced best practices across the codebase.",
+    ],
+    stack: ["MongoDB", "Express.js", "React.js", "Node.js", "TypeScript", "Redux"],
   },
   {
-    role: "Frontend Development Intern",
-    company: "Zaytrics",
-    period: "Previous", // Assuming previous based on context
-    description: "Developed responsive interfaces, applied TypeScript for type-safety, and participated in code reviews.",
+    role: "MERN Stack Developer — Intern",
+    company: "Zaytrics — Islamabad",
+    period: "Apr 2024 – Aug 2024",
+    bullets: [
+      "Developed and tested RESTful API endpoints in Express.js, integrated with MongoDB collections using Mongoose.",
+      "Built responsive frontend components using React.js and TypeScript with strict type safety and reusability.",
+      "Gained production experience integrating Google Calendar API for real-time appointment management.",
+      "Participated in daily standups, sprint planning, and code reviews in an Agile development environment.",
+    ],
+    stack: ["MongoDB", "React.js", "Node.js", "REST APIs", "Google Calendar API"],
   },
 ];
 
 export function Experience() {
   return (
-    <section id="experience" className="relative py-24 px-6 max-w-5xl mx-auto w-full z-10">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4 text-white">Professional Experience</h2>
-        <p className="text-white/60 text-lg">My journey of continuous growth and technical excellence.</p>
-      </div>
-
-      <div className="relative">
-        {/* Glowing Vertical Timeline Line */}
-        <div className="absolute left-[15px] top-4 bottom-4 w-[2px] bg-slate-800">
-          <div className="absolute top-0 bottom-0 left-0 right-0 bg-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.6)]" />
-        </div>
-
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.2 }}
-              className="relative pl-12 sm:pl-16"
-            >
-              {/* Timeline Orb */}
-              <div className="absolute left-[9px] top-6 w-3.5 h-3.5 bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)] outline outline-4 outline-[#0a0a0a]" />
-
-              {/* Glassmorphic Card */}
-              <div className="p-6 md:p-8 rounded-2xl backdrop-blur-md border border-slate-800 bg-slate-900/50 hover:bg-slate-800/50 transition-colors">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white font-heading">{exp.role}</h3>
-                    <h4 className="text-blue-400 font-medium">{exp.company}</h4>
-                  </div>
-                  <span className="text-sm font-medium text-slate-400 bg-slate-800/50 px-3 py-1 rounded-full w-fit">
-                    {exp.period}
-                  </span>
+    <section id="experience">
+      <span className="stag">Experience</span>
+      <h2 className="section-title">
+        <span className="word"><span>Where I&apos;ve</span></span>&nbsp;
+        <span className="word"><span>worked</span></span>
+      </h2>
+      <div className="exp-timeline">
+        <div className="exp-line" />
+        {experiences.map((exp, index) => (
+          <div className="exp-card" key={index}>
+            <div className="exp-orb" />
+            <div className="exp-glass">
+              <div className="exp-header">
+                <div>
+                  <div className="exp-role">{exp.role}</div>
+                  <div className="exp-company">{exp.company}</div>
                 </div>
-                <p className="text-slate-300 leading-relaxed text-sm md:text-base">
-                  {exp.description}
-                </p>
+                <span className="exp-period">{exp.period}</span>
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <ul className="exp-bullets">
+                {exp.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
+              <div className="exp-stack">
+                {exp.stack.map((s) => (
+                  <span key={s} className="stk">{s}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

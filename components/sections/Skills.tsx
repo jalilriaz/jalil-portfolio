@@ -11,35 +11,35 @@ export function Skills() {
       <div className="skills-layout">
         <div>
           <div className="scat">
-            <div className="scat-title">Languages &amp; Core</div>
+            <div className="scat-title">Frontend</div>
             <div className="srow"><div className="shead"><span>JavaScript (ES6+)</span><span className="spct">92%</span></div><div className="strack"><div className="sfill" data-w="92"></div></div></div>
-            <div className="srow"><div className="shead"><span>TypeScript</span><span className="spct">88%</span></div><div className="strack"><div className="sfill" data-w="88"></div></div></div>
-            <div className="srow"><div className="shead"><span>HTML5 / CSS</span><span className="spct">95%</span></div><div className="strack"><div className="sfill" data-w="95"></div></div></div>
             <div className="srow"><div className="shead"><span>React.js / Next.js</span><span className="spct">90%</span></div><div className="strack"><div className="sfill" data-w="90"></div></div></div>
+            <div className="srow"><div className="shead"><span>TypeScript</span><span className="spct">85%</span></div><div className="strack"><div className="sfill" data-w="85"></div></div></div>
+            <div className="srow"><div className="shead"><span>HTML5 / CSS3</span><span className="spct">95%</span></div><div className="strack"><div className="sfill" data-w="95"></div></div></div>
           </div>
           <div className="scat">
-            <div className="scat-title">UI &amp; Styling</div>
-            <div className="srow"><div className="shead"><span>Tailwind CSS</span><span className="spct">90%</span></div><div className="strack"><div className="sfill" data-w="90"></div></div></div>
-            <div className="srow"><div className="shead"><span>Material UI / Bootstrap</span><span className="spct">82%</span></div><div className="strack"><div className="sfill" data-w="82"></div></div></div>
-            <div className="srow"><div className="shead"><span>REST APIs / JSON</span><span className="spct">85%</span></div><div className="strack"><div className="sfill" data-w="85"></div></div></div>
-            <div className="srow"><div className="shead"><span>Git / Vercel / Netlify</span><span className="spct">88%</span></div><div className="strack"><div className="sfill" data-w="88"></div></div></div>
+            <div className="scat-title">Backend &amp; Database</div>
+            <div className="srow"><div className="shead"><span>Node.js / Express.js</span><span className="spct">80%</span></div><div className="strack"><div className="sfill" data-w="80"></div></div></div>
+            <div className="srow"><div className="shead"><span>MongoDB / Mongoose</span><span className="spct">78%</span></div><div className="strack"><div className="sfill" data-w="78"></div></div></div>
+            <div className="srow"><div className="shead"><span>REST API Design</span><span className="spct">83%</span></div><div className="strack"><div className="sfill" data-w="83"></div></div></div>
+            <div className="srow"><div className="shead"><span>JWT Authentication</span><span className="spct">76%</span></div><div className="strack"><div className="sfill" data-w="76"></div></div></div>
           </div>
         </div>
         <div>
-          <div className="scat-title">Technologies</div>
+          <div className="scat-title">Tech Stack</div>
           <div className="tgrid">
             <div className="tchip"><div className="ti">⚛️</div><div className="tn">React.js</div></div>
-            <div className="tchip"><div className="ti">▲</div><div className="tn">Next.js</div></div>
+            <div className="tchip"><div className="ti">🟩</div><div className="tn">Node.js</div></div>
+            <div className="tchip"><div className="ti">🌿</div><div className="tn">MongoDB</div></div>
+            <div className="tchip"><div className="ti">🚂</div><div className="tn">Express.js</div></div>
             <div className="tchip"><div className="ti">🟦</div><div className="tn">TypeScript</div></div>
-            <div className="tchip"><div className="ti">🎨</div><div className="tn">Tailwind</div></div>
-            <div className="tchip"><div className="ti">📱</div><div className="tn">React Native</div></div>
+            <div className="tchip"><div className="ti">▲</div><div className="tn">Next.js</div></div>
             <div className="tchip"><div className="ti">📦</div><div className="tn">Redux</div></div>
-            <div className="tchip"><div className="ti">🎭</div><div className="tn">Material UI</div></div>
-            <div className="tchip"><div className="ti">🅱️</div><div className="tn">Bootstrap</div></div>
-            <div className="tchip"><div className="ti">🐙</div><div className="tn">Git</div></div>
+            <div className="tchip"><div className="ti">🔑</div><div className="tn">JWT Auth</div></div>
+            <div className="tchip"><div className="ti">🎨</div><div className="tn">Tailwind</div></div>
+            <div className="tchip"><div className="ti">🐙</div><div className="tn">Git/GitHub</div></div>
             <div className="tchip"><div className="ti">🌐</div><div className="tn">REST APIs</div></div>
             <div className="tchip"><div className="ti">▲</div><div className="tn">Vercel</div></div>
-            <div className="tchip"><div className="ti">🌀</div><div className="tn">Netlify</div></div>
           </div>
         </div>
       </div>
