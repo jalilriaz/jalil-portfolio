@@ -28,7 +28,7 @@ export function Hero() {
           <a href="#contact" className="btn-ghost magnet">Get in Touch →</a>
         </div>
         <div className="hero-stats">
-          <div><div className="sn">1.5+</div><div className="sl">Yrs Experience</div></div>
+          <div><div className="sn" data-count="1.5">1.5+</div><div className="sl">Yrs Experience</div></div>
           <div><div className="sn" data-count="10">0</div><div className="sl">Projects Shipped</div></div>
           <div><div className="sn" data-count="4">0</div><div className="sl">Key Projects</div></div>
         </div>

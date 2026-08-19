@@ -71,10 +71,20 @@ export function CanvasBackground() {
       animationFrameId = requestAnimationFrame(drawPts);
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animationFrameId);
+      } else {
+        animationFrameId = requestAnimationFrame(drawPts);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     drawPts();
 
     return () => {
       window.removeEventListener("resize", rsz);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);

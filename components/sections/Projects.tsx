@@ -10,6 +10,7 @@ interface ProjectData {
   badge: string;
   badgeColor: string;
   link?: string;
+  github?: string;
   isBig?: boolean;
 }
 
@@ -28,7 +29,7 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
     <div className={`pcard ${project.isBig ? 'big' : ''}`}>
       <div className="pthumb relative overflow-hidden group">
         <div className={`ptbg ${project.badge === 'Platform' ? 'g2' : project.badge === 'Corporate' ? 'g3' : project.badge === 'Multilingual' ? 'g4' : 'g1'} absolute inset-0`}></div>
-        {project.images && project.images.length > 0 && (
+        {project.images && project.images.length > 0 ? (
           <div className="absolute inset-4 sm:inset-5 rounded-xl overflow-hidden border border-white/10 shadow-2xl z-10 transition-all duration-500 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(0,255,224,0.15)]">
             {project.images.map((img, i) => (
               <Image
@@ -44,9 +45,28 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
               />
             ))}
           </div>
+        ) : (
+          <div className="absolute inset-4 sm:inset-5 rounded-xl overflow-hidden border border-white/10 shadow-2xl z-10 bg-black/40 backdrop-blur-md flex flex-col items-center justify-center p-4 text-center">
+            <span className="font-mono text-xs text-emerald-400 mb-1">&lt;jalil-portfolio /&gt;</span>
+            <span className="text-xs text-slate-300 font-medium">MERN Developer Showcase</span>
+          </div>
         )}
         <div className="absolute inset-0 bg-black/10 z-20 pointer-events-none"></div>
         <span className={`pbadge ${project.badgeColor} z-30`}>{project.badge}</span>
+
+        {/* Hover Action Buttons */}
+        <div className="pacts z-30">
+          {project.github && (
+            <a href={project.github} target="_blank" rel="noopener noreferrer" className="pabtn" title="View Source Code">
+              gh
+            </a>
+          )}
+          {project.link && (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="pabtn" title="Live Preview">
+              ↗
+            </a>
+          )}
+        </div>
       </div>
       <div className="pbody">
         <div className="pname">{project.title}</div>
@@ -70,6 +90,7 @@ export function Projects() {
       images: ["/elite dental.png"],
       badge: "Featured",
       badgeColor: "bg-neon",
+      github: "https://github.com/jalilriaz",
       isBig: true,
     },
     {
@@ -79,6 +100,7 @@ export function Projects() {
       images: ["/dpp.png"],
       badge: "Platform",
       badgeColor: "bp-neon",
+      github: "https://github.com/jalilriaz",
     },
     {
       title: "Software Dev Agency Website",
@@ -87,6 +109,7 @@ export function Projects() {
       images: ["/dd-brothers.png"],
       badge: "Corporate",
       badgeColor: "bg-neon",
+      github: "https://github.com/jalilriaz",
     },
     {
       title: "Najadwil - Digital Ticketing",
@@ -95,6 +118,7 @@ export function Projects() {
       images: ["/njadwil.png"],
       badge: "Multilingual",
       badgeColor: "br-neon",
+      github: "https://github.com/jalilriaz",
       isBig: true,
     },
     {
@@ -104,6 +128,7 @@ export function Projects() {
       images: [],
       badge: "Portfolio",
       badgeColor: "bg-neon",
+      github: "https://github.com/jalilriaz",
       link: "https://jalil-riaz-portfolio.vercel.app/",
     },
   ];

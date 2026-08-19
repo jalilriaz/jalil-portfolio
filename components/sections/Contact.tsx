@@ -93,11 +93,23 @@ export function Contact() {
           <input type="hidden" name="_template" value="box" />
           
           <div className="frow">
-            <div className="fg"><label>Name</label><input type="text" name="name" placeholder="Your name" required disabled={isSubmitting} /></div>
-            <div className="fg"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required disabled={isSubmitting} /></div>
+            <div className="fg">
+              <label htmlFor="contact-name">Name</label>
+              <input id="contact-name" type="text" name="name" placeholder="Your name" required disabled={isSubmitting} />
+            </div>
+            <div className="fg">
+              <label htmlFor="contact-email">Email</label>
+              <input id="contact-email" type="email" name="email" placeholder="you@email.com" required disabled={isSubmitting} />
+            </div>
           </div>
-          <div className="fg"><label>Subject</label><input type="text" name="_subject" placeholder="What's up?" disabled={isSubmitting} /></div>
-          <div className="fg"><label>Message</label><textarea name="message" rows={5} placeholder="Tell me about your project..." required disabled={isSubmitting}></textarea></div>
+          <div className="fg">
+            <label htmlFor="contact-subject">Subject</label>
+            <input id="contact-subject" type="text" name="_subject" placeholder="What's up?" disabled={isSubmitting} />
+          </div>
+          <div className="fg">
+            <label htmlFor="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows={5} placeholder="Tell me about your project..." required disabled={isSubmitting}></textarea>
+          </div>
           <button type="submit" className="sbtn" id="sbtn" disabled={isSubmitting}>
             Send Message ↗
           </button>

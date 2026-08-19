@@ -31,12 +31,16 @@ export default function Home() {
         .add(() => {
           document.querySelectorAll(".sn").forEach((el) => {
             const htmlEl = el as HTMLElement;
+            const rawCount = htmlEl.dataset.count;
+            if (!rawCount) return;
+            const target = parseFloat(rawCount);
+            if (isNaN(target)) return;
+            const isFloat = rawCount.includes(".");
             let n = 0;
-            const target = Number(htmlEl.dataset.count);
-            const step = target / 40;
+            const step = target / 35;
             const t = setInterval(() => {
               n = Math.min(n + step, target);
-              htmlEl.textContent = Math.floor(n) + "+";
+              htmlEl.textContent = isFloat ? n.toFixed(1) + "+" : Math.floor(n) + "+";
               if (n >= target) clearInterval(t);
             }, 30);
           });
